@@ -2,6 +2,7 @@ module Calculations where
 
 import Text.Printf
 import Helpers
+import Data.Decimal
 
 lesson7 :: IO ()
 lesson7 = do
@@ -37,3 +38,21 @@ lesson9 = do
   putStrLn $ "You will need " ++ (show $ gallonsRequired area) ++ " gallons of paint to cover " ++ (show $ round area) ++ " square feet."
   where
     gallonsRequired = ceiling . flip (/) 350
+  
+lesson10 :: IO ()
+lesson10 = do
+  i1p <- askInt "Price of item 1: "
+  i1q <- askInt "Quantity of item 1: "
+  i2p <- askInt "Price of item 2: "
+  i2q <- askInt "Quantity of item 2: "
+  i3p <- askInt "Price of item 3: "
+  i3q <- askInt "Quantity of item 3: "
+  let totalPrice = i1p * i1q + i2p * i2q + i3p * i3q
+  let subtotal = roundTwo totalPrice
+  let tax = (roundTwo totalPrice) * 0.055
+  putStrLn $ "Subtotal: $" ++ (show $ subtotal)
+  putStrLn $ "Tax: $" ++ (show $ tax)
+  putStrLn $ "Total: $" ++ (show $ subtotal + tax)
+  where
+    roundTwo :: Int -> Decimal
+    roundTwo = (realFracToDecimal 2) . fromIntegral
