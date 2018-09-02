@@ -1,10 +1,10 @@
 name:                excercises-for-programmers
 version:             0.1.0.0
-github:              "githubuser/excercises-for-programmers"
+github:              "rufusrolfpunch/excercises-for-programmers"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2018 Author name here"
+author:              "Ryan Breen"
+maintainer:          "ryan@breen.xyz"
+copyright:           "2018 Ryan Breen"
 
 extra-source-files:
 - README.md

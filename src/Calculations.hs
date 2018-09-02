@@ -26,5 +26,5 @@ lesson8 = do
   putStrLn $ (show people) ++ " people with " ++ (show pizzas) ++ " " ++ (pluralPizza pizzas) ++ "."
   putStrLn $ "Each person gets " ++ (show slicesPerPerson) ++ " "++ (pluralPiece slicesPerPerson) ++ " of pizza."
   putStrLn $ "There are " ++ (show leftoverPieces) ++ " leftover " ++ (pluralPiece leftoverPieces) ++ " pieces."
-  where pluralPizza n = if (n > 1) || (n == 0) then "pizzas" else "pizza"
-        pluralPiece n = if (n > 1) || (n == 0) then "pieces" else "piece"
+  where pluralPizza n = if n > 1 || n == 0 then "pizzas" else "pizza"
+        pluralPiece n = if n > 1 || n == 0 then "pieces" else "piece"
