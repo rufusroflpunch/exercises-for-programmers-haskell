@@ -1,5 +1,8 @@
 module Lib where
 
+import Data.Time
+import Helpers
+
 getLesson :: IO Int
 getLesson = do
     putStr "Enter a lesson number: "
@@ -12,6 +15,7 @@ runLesson 1 = lesson1
 runLesson 2 = lesson2
 runLesson 3 = lesson3
 runLesson 4 = lesson4
+runLesson 5 = lesson5
 runLesson _ = putStrLn "Lesson not found!"
 
 lesson1 :: IO ()
@@ -53,3 +57,25 @@ lesson4 = do
         ask question = do
             putStr question
             getLine
+
+lesson5 :: IO ()
+lesson5 = do
+    numOne <- askInt "First number: "
+    numTwo <- askInt "Second number: "
+    putStrLn $ (show numOne) ++ " + " ++ (show numTwo) ++ " = " ++ (show $ numOne + numTwo)
+    putStrLn $ (show numOne) ++ " - " ++ (show numTwo) ++ " = " ++ (show $ numOne - numTwo)
+    putStrLn $ (show numOne) ++ " * " ++ (show numTwo) ++ " = " ++ (show $ numOne * numTwo)
+    putStrLn $ (show numOne) ++ " / " ++ (show numTwo) ++ " = " ++ (show $ numOne `quot` numTwo)
+
+lesson6 :: IO ()
+lesson6 = do
+    currentAge <- askInt "What is your current age? "
+    retirementAge <- askInt "What is youre retirement age? "
+    let yearsToRetirement = retirementAge - currentAge
+    putStrLn $ "You have " ++ (show $ yearsToRetirement) ++ " left until you can retire."
+    if yearsToRetirement <= 0
+        then putStrLn "You can retire now!"
+        else do
+            utc <- getCurrentTime
+            let (year, _, _) = toGregorian $ utctDay utc
+            putStrLn $ "It's " ++ (show year) ++ ", so you can retire in " ++ (show $ (+) year $ fromIntegral yearsToRetirement)
