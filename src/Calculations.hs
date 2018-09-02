@@ -28,3 +28,12 @@ lesson8 = do
   putStrLn $ "There are " ++ (show leftoverPieces) ++ " leftover " ++ (pluralPiece leftoverPieces) ++ " pieces."
   where pluralPizza n = if n > 1 || n == 0 then "pizzas" else "pizza"
         pluralPiece n = if n > 1 || n == 0 then "pieces" else "piece"
+
+lesson9 :: IO ()
+lesson9 = do
+  length <- askInt "Length of ceiling: "
+  width <- askInt "Width of ceiling: "
+  let area = fromIntegral $ length * width
+  putStrLn $ "You will need " ++ (show $ gallonsRequired area) ++ " gallons of paint to cover " ++ (show $ round area) ++ " square feet."
+  where
+    gallonsRequired = ceiling . flip (/) 350

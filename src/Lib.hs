@@ -18,4 +18,6 @@ runLesson 4 = lesson4
 runLesson 5 = lesson5
 runLesson 6 = lesson6
 runLesson 7 = lesson7
+runLesson 8 = lesson8
+runLesson 9 = lesson9
 runLesson _ = putStrLn "Lesson not found!"
