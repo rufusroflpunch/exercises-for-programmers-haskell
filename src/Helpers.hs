@@ -9,3 +9,8 @@ askInt :: String -> IO Int
 askInt question = do
   putStr question
   fmap (read :: String -> Int) getLine
+
+askDouble :: String -> IO Double
+askDouble question = do
+  putStr question
+  fmap (read :: String -> Double) getLine

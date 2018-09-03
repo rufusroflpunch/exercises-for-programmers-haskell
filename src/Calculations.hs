@@ -56,3 +56,21 @@ lesson10 = do
   where
     roundTwo :: Int -> Decimal
     roundTwo = (realFracToDecimal 2) . fromIntegral
+
+lesson11 :: IO ()
+lesson11 = do
+  euros <- askDouble "How many euros are you exchanging? "
+  rate <- askDouble "What is the exchange range? "
+  let dollars = realFracToDecimal 2 (euros * rate) 
+  putStrLn $ (show $ round euros) ++ " euros at an exchange rate of " ++ (show rate) ++ " is "
+  putStrLn $ (show dollars) ++ " U.S. dollars."
+
+lesson12 :: IO ()
+lesson12 = do
+  principal <- askDouble "Loan principal: "
+  interest <- askDouble "Rate of interest: "
+  term <- askInt "Number of years: "
+  let final = realFracToDecimal 2 $ (1 + (interest / 100) * (fromIntegral term)) * principal
+  putStrLn $ "After " ++ (show term) ++
+    " years at " ++ (show interest) ++
+    "%, the investment" ++ " will be worth $" ++ (show final) ++ "."
